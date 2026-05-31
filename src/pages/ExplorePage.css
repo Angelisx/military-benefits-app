@@ -1,0 +1,24 @@
+.explore-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  padding: 16px;
+}
+
+.explore-tile {
+  border-radius: var(--radius);
+  padding: 20px 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+  min-height: 130px;
+  text-align: left;
+  border: 1px solid rgba(255,255,255,0.06);
+  transition: transform 0.1s, opacity 0.1s;
+}
+.explore-tile:active { transform: scale(0.97); opacity: 0.9; }
+
+.explore-tile__icon { font-size: 1.8rem; margin-bottom: 2px; }
+.explore-tile__label { font-size: 1rem; font-weight: 700; color: #fff; }
+.explore-tile__sub { font-size: 0.72rem; color: rgba(255,255,255,0.65); line-height: 1.4; }

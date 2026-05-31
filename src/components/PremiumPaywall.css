@@ -1,0 +1,58 @@
+.paywall {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 24px;
+  text-align: center;
+  gap: 12px;
+}
+
+.paywall--inline {
+  padding: 24px 16px;
+  background: var(--bg-card);
+  border-radius: var(--radius);
+  margin: 16px;
+  border: 1px solid var(--purple);
+}
+
+.paywall__icon { font-size: 2.5rem; }
+
+.paywall__title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--purple);
+}
+
+.paywall__desc {
+  font-size: 0.9rem;
+  color: var(--fg-muted);
+  max-width: 280px;
+}
+
+.paywall__perks {
+  list-style: none;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 0.9rem;
+  width: 100%;
+  max-width: 240px;
+}
+
+.paywall__cta {
+  background: var(--primary);
+  color: #000;
+  font-weight: 700;
+  font-size: 1rem;
+  padding: 14px 32px;
+  border-radius: var(--radius);
+  width: 100%;
+  max-width: 280px;
+  margin-top: 8px;
+}
+
+.paywall__fine {
+  font-size: 0.75rem;
+  color: var(--fg-muted);
+}

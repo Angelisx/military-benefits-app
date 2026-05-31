@@ -1,0 +1,170 @@
+.va-tabs {
+  display: flex;
+  border-bottom: 2px solid var(--border);
+  padding: 0 16px;
+}
+.va-tab {
+  flex: 1;
+  padding: 12px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--fg-muted);
+  border-bottom: 2px solid transparent;
+  margin-bottom: -2px;
+}
+.va-tab.active { color: var(--primary); border-bottom-color: var(--primary); }
+
+.va-sub-tabs {
+  display: flex;
+  gap: 8px;
+  padding: 12px 16px 0;
+}
+.va-sub-tab {
+  flex: 1;
+  padding: 8px 4px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--fg-muted);
+}
+.va-sub-tab.active { background: var(--primary); color: #000; border-color: var(--primary); }
+
+.va-section-list {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding-bottom: 40px;
+}
+
+.va-card {
+  background: var(--bg-card);
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  overflow: hidden;
+}
+
+.va-card__header {
+  padding: 14px 16px 12px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  border-bottom: 1px solid var(--border);
+}
+
+.va-form { padding: 12px 16px; display: flex; flex-direction: column; gap: 10px; }
+
+.va-field { display: flex; flex-direction: column; gap: 4px; }
+.va-field label { font-size: 0.75rem; font-weight: 600; color: var(--fg-muted); text-transform: uppercase; }
+
+.va-results {
+  padding: 0 16px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+.va-result-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  border-top: 1px solid var(--border);
+  font-size: 0.9rem;
+}
+.va-result-row span:first-child { color: var(--fg-muted); }
+
+.va-warning {
+  margin: 8px 16px;
+  padding: 10px 14px;
+  background: hsl(37 60% 15%);
+  border: 1px solid var(--warning);
+  border-radius: var(--radius);
+  font-size: 0.84rem;
+  color: var(--warning);
+}
+.va-note { padding: 8px 16px 14px; font-size: 0.8rem; color: var(--fg-muted); line-height: 1.5; }
+
+/* Rating calculator */
+.va-rating-combined {
+  padding: 20px;
+  text-align: center;
+  background: linear-gradient(135deg, hsl(241 40% 25%), hsl(241 60% 12%));
+}
+.va-rating-combined__value { font-size: 3rem; font-weight: 700; }
+.va-rating-combined__label { font-size: 0.78rem; color: var(--fg-muted); text-transform: uppercase; }
+
+.va-ratings-list { padding: 12px 16px; display: flex; flex-direction: column; gap: 8px; }
+
+.va-rating-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.va-rating-row__label { font-size: 0.85rem; flex: 1; color: var(--fg-muted); }
+.va-rating-remove { font-size: 0.85rem; color: var(--destructive); width: 28px; height: 28px; display: flex; align-items: center; justify-content: center; }
+
+.va-add-condition {
+  margin: 4px 16px 12px;
+  padding: 10px;
+  background: var(--bg-elevated);
+  border: 1px dashed var(--border);
+  border-radius: var(--radius);
+  font-size: 0.88rem;
+  color: var(--primary);
+  font-weight: 600;
+  width: calc(100% - 32px);
+}
+
+/* BDD */
+.va-bdd-intro { padding: 12px 16px; font-size: 0.88rem; color: var(--fg-muted); line-height: 1.5; }
+
+.bdd-step {
+  display: flex;
+  gap: 14px;
+  padding: 14px 16px;
+  border-top: 1px solid var(--border);
+}
+.bdd-step__num {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--primary);
+  color: #000;
+  font-weight: 700;
+  font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.bdd-step__title { font-size: 0.9rem; font-weight: 700; margin-bottom: 4px; }
+.bdd-step__desc { font-size: 0.82rem; color: var(--fg-muted); line-height: 1.5; }
+
+/* State benefits */
+.state-benefit-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  margin: 0 16px 12px;
+}
+.state-benefit-card__header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 14px;
+  background: var(--bg-elevated);
+  border-bottom: 1px solid var(--border);
+}
+.state-benefit-card__code {
+  background: var(--primary);
+  color: #000;
+  font-weight: 700;
+  font-size: 0.78rem;
+  padding: 3px 8px;
+  border-radius: 4px;
+}
+.state-benefit-card__name { font-size: 0.95rem; font-weight: 600; }
+.state-benefit-item { padding: 9px 14px; font-size: 0.84rem; color: var(--fg-muted); border-bottom: 1px solid var(--border); line-height: 1.4; }
+.state-benefit-item:last-child { border-bottom: none; }

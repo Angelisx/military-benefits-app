@@ -1,0 +1,41 @@
+.cards-panel { padding-bottom: 40px; }
+.cards-panel__search-wrap { padding: 12px 16px 8px; }
+.cards-panel__count { padding: 0 16px 8px; font-size: 0.78rem; color: var(--fg-muted); }
+
+.card-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--border);
+  text-align: left;
+  width: 100%;
+  position: relative;
+}
+
+.card-item__top { display: flex; align-items: center; gap: 8px; margin-bottom: 2px; }
+.card-item__issuer { font-size: 0.75rem; color: var(--fg-muted); font-weight: 500; }
+.card-item__waived { font-size: 0.68rem; color: var(--primary); font-weight: 700; }
+.card-item__name { font-size: 0.95rem; font-weight: 600; }
+.card-item__meta { display: flex; gap: 12px; align-items: center; }
+.card-item__fee { font-size: 0.78rem; color: var(--fg-muted); }
+.card-item__perks { font-size: 0.82rem; }
+.card-item__chevron { position: absolute; right: 16px; top: 50%; transform: translateY(-50%); color: var(--fg-muted); font-size: 1.4rem; }
+
+/* Detail */
+.card-detail { padding-bottom: 40px; }
+.card-detail__back { display: block; padding: 14px 16px; font-size: 1rem; color: var(--primary); font-weight: 500; border-bottom: 1px solid var(--border); width: 100%; text-align: left; }
+.card-detail__content { padding: 20px; }
+.card-detail__issuer { font-size: 0.75rem; color: var(--fg-muted); text-transform: uppercase; margin-bottom: 4px; }
+.card-detail__name { font-size: 1.3rem; font-weight: 700; margin-bottom: 10px; }
+.card-detail__waived { background: hsl(142 40% 15%); border: 1px solid var(--primary); border-radius: var(--radius); padding: 8px 14px; font-size: 0.85rem; font-weight: 600; color: var(--primary); margin-bottom: 16px; }
+.card-detail__row { display: flex; justify-content: space-between; padding: 12px 0; border-bottom: 1px solid var(--border); font-size: 0.9rem; }
+.card-detail__row span:first-child { color: var(--fg-muted); }
+.strikethrough { text-decoration: line-through; color: var(--fg-muted); }
+.card-detail__section-heading { font-size: 0.78rem; font-weight: 700; color: var(--fg-muted); text-transform: uppercase; margin: 20px 0 8px; }
+.card-detail__text { font-size: 0.9rem; line-height: 1.6; color: var(--fg); }
+
+.card-benefit-row { padding: 12px 0; border-bottom: 1px solid var(--border); }
+.card-benefit-row__top { display: flex; justify-content: space-between; margin-bottom: 3px; }
+.card-benefit-row__name { font-size: 0.9rem; font-weight: 600; }
+.card-benefit-row__desc { font-size: 0.8rem; color: var(--fg-muted); }

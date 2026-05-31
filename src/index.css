@@ -1,0 +1,104 @@
+:root {
+  --bg: hsl(0 0% 10%);
+  --bg-card: hsl(0 0% 14%);
+  --bg-elevated: hsl(0 0% 18%);
+  --fg: hsl(0 0% 96%);
+  --fg-muted: hsl(0 0% 65%);
+  --primary: hsl(142 71% 45%);
+  --blue: hsl(211 100% 52%);
+  --destructive: hsl(4 100% 61%);
+  --money: hsl(122 40% 45%);
+  --purple: hsl(280 85% 60%);
+  --teal: hsl(195 100% 45%);
+  --indigo: hsl(241 70% 55%);
+  --warning: hsl(37 100% 52%);
+  --border: hsl(0 0% 22%);
+  --radius: 0.75rem;
+  color-scheme: dark;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: 'Roboto', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  overflow: hidden;
+}
+
+#root {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  max-width: 480px;
+  margin: 0 auto;
+  position: relative;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  color: inherit;
+  font-family: inherit;
+}
+
+input, select, textarea {
+  font-family: inherit;
+  color: var(--fg);
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 0.6rem 0.9rem;
+  font-size: 0.95rem;
+  outline: none;
+  width: 100%;
+}
+
+input:focus, select:focus, textarea:focus {
+  border-color: var(--primary);
+}
+
+a {
+  color: var(--blue);
+  text-decoration: none;
+}
+
+.page-scroll {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 80px;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+}
+
+.money { color: var(--money); font-weight: 600; }
+.text-muted { color: var(--fg-muted); }
+.text-primary { color: var(--primary); }
+.text-sm { font-size: 0.85rem; }
+.text-xs { font-size: 0.75rem; }
+.fw-500 { font-weight: 500; }
+.fw-700 { font-weight: 700; }
+
+.gradient-purple { background: linear-gradient(135deg, hsl(280 60% 35%), hsl(300 40% 15%)); }
+.gradient-blue   { background: linear-gradient(135deg, hsl(211 70% 40%), hsl(220 60% 15%)); }
+.gradient-red    { background: linear-gradient(135deg, hsl(0 60% 40%), hsl(350 50% 15%)); }
+.gradient-navy   { background: linear-gradient(135deg, hsl(220 60% 35%), hsl(190 50% 15%)); }
+.gradient-teal   { background: linear-gradient(135deg, hsl(195 70% 35%), hsl(150 50% 12%)); }
+.gradient-amber  { background: linear-gradient(135deg, hsl(37 80% 40%), hsl(30 60% 15%)); }

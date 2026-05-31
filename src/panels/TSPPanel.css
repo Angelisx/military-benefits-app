@@ -1,0 +1,75 @@
+.tsp-panel { padding-bottom: 40px; }
+
+.tsp-tabs {
+  display: flex;
+  border-bottom: 1px solid var(--border);
+  padding: 0 16px;
+  gap: 0;
+}
+
+.tsp-tab {
+  flex: 1;
+  padding: 12px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--fg-muted);
+  border-bottom: 2px solid transparent;
+  text-align: center;
+}
+.tsp-tab.active { color: var(--primary); border-bottom-color: var(--primary); }
+
+.tsp-balance-card {
+  margin: 16px;
+  padding: 20px;
+  background: linear-gradient(135deg, hsl(142 40% 20%), hsl(142 60% 12%));
+  border-radius: var(--radius);
+  border: 1px solid var(--primary);
+  text-align: center;
+}
+.tsp-balance-card__label { font-size: 0.78rem; color: var(--fg-muted); margin-bottom: 4px; text-transform: uppercase; }
+.tsp-balance-card__value { font-size: 2rem; font-weight: 700; }
+.tsp-balance-card__gain { margin-top: 6px; font-size: 0.85rem; font-weight: 600; }
+.tsp-balance-card__gain.pos { color: var(--primary); }
+.tsp-balance-card__gain.neg { color: var(--destructive); }
+
+.tsp-panel__section { padding: 12px 16px; border-bottom: 1px solid var(--border); }
+
+.tsp-label { display: block; font-size: 0.78rem; font-weight: 700; color: var(--fg-muted); text-transform: uppercase; margin-bottom: 8px; }
+
+.tsp-alloc-row { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+.tsp-alloc-row__label { font-size: 0.88rem; font-weight: 600; min-width: 60px; }
+.tsp-alloc-row__pct { font-size: 0.85rem; color: var(--fg-muted); }
+
+.tsp-fund-toggles { display: flex; gap: 8px; flex-wrap: wrap; }
+.tsp-fund-btn {
+  padding: 5px 14px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--fg-muted);
+}
+.tsp-fund-btn.active { background: transparent; }
+
+.tsp-projection-card {
+  margin: 16px;
+  padding: 24px;
+  background: var(--bg-card);
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  text-align: center;
+}
+.tsp-projection-card__label { font-size: 0.78rem; color: var(--fg-muted); text-transform: uppercase; margin-bottom: 8px; }
+.tsp-projection-card__value { font-size: 2rem; font-weight: 700; }
+.tsp-projection-card__note { margin-top: 6px; font-size: 0.78rem; color: var(--fg-muted); }
+
+.tsp-note {
+  margin: 16px;
+  padding: 14px;
+  background: var(--bg-card);
+  border-radius: var(--radius);
+  border-left: 3px solid var(--warning);
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: var(--fg-muted);
+}
