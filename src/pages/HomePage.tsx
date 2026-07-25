@@ -3,14 +3,15 @@ import { useNavigate } from 'react-router-dom';
 import { getRecentArticles } from '../data/articles';
 import SlidePanel from '../components/SlidePanel';
 import ArticleReader from '../components/ArticleReader';
+import { getTrackedCards, getTrackedCardsPerksTotal, getTSPBalance } from '../lib/tracking';
 import type { Article } from '../types';
 import './HomePage.css';
 
 const METRIC_TILES = [
   { id:'cards', icon:'💳', label:'Card Benefits', gradient:'gradient-teal', link:'/explore' },
   { id:'income', icon:'💵', label:'Annual Income', gradient:'gradient-amber', link:null },
-  { id:'tsp', icon:'📈', label:'Projected Balance', subtitle:'1 Week', gradient:'gradient-blue', link:'/explore' },
-  { id:'perks', icon:'🎯', label:'Perks', gradient:'gradient-purple', link:null },
+  { id:'tsp', icon:'📈', label:'TSP Balance', gradient:'gradient-blue', link:'/explore' },
+  { id:'perks', icon:'🎯', label:'Perks Tracked', gradient:'gradient-purple', link:'/explore' },
 ];
 
 export default function HomePage() {
@@ -19,11 +20,29 @@ export default function HomePage() {
   const [income, setIncome] = useState(() => Number(localStorage.getItem('annualIncome') || 0));
   const [editIncome, setEditIncome] = useState(false);
   const [selectedArticle, setSelectedArticle] = useState<Article | null>(null);
+  const [trackedCards] = useState(getTrackedCards);
+  const [perksTotal] = useState(getTrackedCardsPerksTotal);
+  const [tspBalance] = useState(getTSPBalance);
 
   const saveIncome = (val: number) => {
     setIncome(val);
     localStorage.setItem('annualIncome', String(val));
     setEditIncome(false);
+  };
+
+  const totalTracked = perksTotal + tspBalance;
+
+  const tileValue = (id: string): string => {
+    switch (id) {
+      case 'cards':
+        return trackedCards.length > 0 ? `${trackedCards.length} card${trackedCards.length === 1 ? '' : 's'} tracked` : 'Manage →';
+      case 'tsp':
+        return tspBalance > 0 ? `$${tspBalance.toLocaleString()}` : 'View TSP →';
+      case 'perks':
+        return perksTotal > 0 ? `$${perksTotal.toLocaleString()}/yr` : 'Track a card →';
+      default:
+        return '';
+    }
   };
 
   return (
@@ -63,8 +82,8 @@ export default function HomePage() {
                 </div>
               )
             ) : (
-              <div className="metric-tile__value">
-                {tile.id === 'tsp' ? 'View TSP →' : tile.id === 'cards' ? 'Manage →' : '0 pts'}
+              <div className={`metric-tile__value${(tile.id === 'tsp' && tspBalance > 0) || (tile.id === 'perks' && perksTotal > 0) ? ' money' : ''}`}>
+                {tileValue(tile.id)}
               </div>
             )}
           </button>
@@ -72,7 +91,8 @@ export default function HomePage() {
       </div>
 
       <div className="home-total">
-        Total Tracked: <span className="money">$0</span>
+        Total Tracked: <span className="money">${totalTracked.toLocaleString()}</span>
+        {totalTracked === 0 && <span className="home-total__hint"> — track a card or your TSP balance to see it here</span>}
       </div>
 
       <section className="home-section">

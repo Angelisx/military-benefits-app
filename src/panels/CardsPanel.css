@@ -4,13 +4,21 @@
 
 .card-item {
   display: flex;
-  flex-direction: column;
-  gap: 4px;
+  align-items: stretch;
+  gap: 8px;
   padding: 14px 16px;
   border-bottom: 1px solid var(--border);
+}
+
+.card-item__main {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
   text-align: left;
-  width: 100%;
+  flex: 1;
+  min-width: 0;
   position: relative;
+  padding-right: 22px;
 }
 
 .card-item__top { display: flex; align-items: center; gap: 8px; margin-bottom: 2px; }
@@ -20,7 +28,45 @@
 .card-item__meta { display: flex; gap: 12px; align-items: center; }
 .card-item__fee { font-size: 0.78rem; color: var(--fg-muted); }
 .card-item__perks { font-size: 0.82rem; }
-.card-item__chevron { position: absolute; right: 16px; top: 50%; transform: translateY(-50%); color: var(--fg-muted); font-size: 1.4rem; }
+.card-item__chevron { position: absolute; right: 0; top: 50%; transform: translateY(-50%); color: var(--fg-muted); font-size: 1.4rem; }
+
+.card-item__track {
+  flex-shrink: 0;
+  align-self: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  color: var(--fg-muted);
+  font-size: 1rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.card-item__track.active {
+  background: hsl(142 40% 15%);
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.card-detail__track {
+  display: block;
+  width: 100%;
+  text-align: center;
+  padding: 10px 14px;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--fg);
+  margin-bottom: 14px;
+}
+.card-detail__track.active {
+  background: hsl(142 40% 15%);
+  border-color: var(--primary);
+  color: var(--primary);
+}
 
 /* Detail */
 .card-detail { padding-bottom: 40px; }

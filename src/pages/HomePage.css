@@ -51,6 +51,7 @@
   color: var(--fg-muted);
   border-bottom: 1px solid var(--border);
 }
+.home-total__hint { font-size: 0.78rem; font-style: italic; }
 
 .home-section { padding: 16px 16px; }
 
