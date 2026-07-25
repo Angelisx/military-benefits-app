@@ -51,6 +51,15 @@ button {
   font-family: inherit;
 }
 
+button:active:not(:disabled) {
+  opacity: 0.85;
+}
+
+button:disabled {
+  cursor: default;
+  opacity: 0.5;
+}
+
 input, select, textarea {
   font-family: inherit;
   color: var(--fg);
@@ -65,6 +74,11 @@ input, select, textarea {
 
 input:focus, select:focus, textarea:focus {
   border-color: var(--primary);
+}
+
+button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible, [tabindex]:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
 }
 
 a {

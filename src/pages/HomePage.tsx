@@ -82,7 +82,10 @@ export default function HomePage() {
           <p className="location-prompt__text">Enable location to see military discounts near you</p>
           <button
             className="location-prompt__btn"
-            onClick={() => navigator.geolocation?.getCurrentPosition(() => {}, () => {})}
+            onClick={() => navigator.geolocation?.getCurrentPosition(
+              () => navigate('/map'),
+              () => navigate('/map')
+            )}
           >
             Enable Location
           </button>

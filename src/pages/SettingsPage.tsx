@@ -34,6 +34,12 @@ export default function SettingsPage() {
     navigate('/');
   };
 
+  const handleDeleteAccount = async () => {
+    await signOut();
+    localStorage.clear();
+    navigate('/');
+  };
+
   return (
     <div className="page-scroll">
       <PageHeader title="Settings" />
@@ -147,10 +153,13 @@ export default function SettingsPage() {
             </button>
           ) : (
             <div className="settings-confirm">
-              <p>Are you sure? This is permanent and cannot be undone.</p>
+              <p>
+                This signs you out and clears all data stored on this device. It does not delete
+                your account from our servers — message us on Instagram above to request that.
+              </p>
               <div className="settings-confirm__btns">
                 <button onClick={() => setShowDeleteConfirm(false)}>Cancel</button>
-                <button className="settings-confirm__delete">Delete Account</button>
+                <button className="settings-confirm__delete" onClick={handleDeleteAccount}>Sign Out &amp; Clear Data</button>
               </div>
             </div>
           )}
