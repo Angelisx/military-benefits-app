@@ -1,5 +1,5 @@
-const SHELL_CACHE = 'shell-v2';
-const ASSETS_CACHE = 'mil-benefits-v2';
+const SHELL_CACHE = 'shell-v3';
+const ASSETS_CACHE = 'mil-benefits-v3';
 
 const SHELL_URLS = ['/', '/explore', '/map', '/va', '/settings', '/library', '/auth', '/paywall'];
 
@@ -33,27 +33,35 @@ self.addEventListener('fetch', event => {
     return;
   }
 
-  // Cache-first for assets
+  // Stale-while-revalidate for hashed build assets: instant from cache,
+  // refreshed in the background so the next load picks up new builds.
   if (url.pathname.match(/\.(js|css|png|svg|ico|woff2?)$/)) {
     event.respondWith(
       caches.open(ASSETS_CACHE).then(cache =>
         cache.match(request).then(cached => {
-          if (cached) return cached;
-          return fetch(request).then(res => {
+          const fetchPromise = fetch(request).then(res => {
             cache.put(request, res.clone());
             return res;
-          });
+          }).catch(() => cached);
+          return cached || fetchPromise;
         })
       )
     );
     return;
   }
 
-  // Shell-first for navigation
+  // Stale-while-revalidate for navigation: serve the cached shell instantly,
+  // but always refetch in the background so updates aren't stuck forever.
   if (request.mode === 'navigate') {
     event.respondWith(
       caches.open(SHELL_CACHE).then(cache =>
-        cache.match('/').then(cached => cached || fetch(request))
+        cache.match('/').then(cached => {
+          const fetchPromise = fetch(request).then(res => {
+            cache.put('/', res.clone());
+            return res;
+          }).catch(() => cached);
+          return cached || fetchPromise;
+        })
       )
     );
     return;

@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import type { ReactNode } from 'react';
 import './SlidePanel.css';
 
@@ -11,6 +11,11 @@ interface SlidePanelProps {
 }
 
 export default function SlidePanel({ open, onClose, title, badge, children }: SlidePanelProps) {
+  const [hasOpened, setHasOpened] = useState(open);
+  if (open && !hasOpened) {
+    setHasOpened(true);
+  }
+
   useEffect(() => {
     if (open) document.body.style.overflow = 'hidden';
     else document.body.style.overflow = '';
@@ -30,7 +35,7 @@ export default function SlidePanel({ open, onClose, title, badge, children }: Sl
         <div style={{ width: 40 }} />
       </div>
       <div className="slide-panel__body">
-        {children}
+        {hasOpened ? children : null}
       </div>
     </div>
   );

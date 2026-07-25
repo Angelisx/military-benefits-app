@@ -1,15 +1,16 @@
-import { useState } from 'react';
+import { Suspense, lazy, useState } from 'react';
 import PageHeader from '../components/PageHeader';
 import SlidePanel from '../components/SlidePanel';
 import ArticleList from '../components/ArticleList';
 import ArticleReader from '../components/ArticleReader';
-import LoungesPanel from '../panels/LoungesPanel';
-import HotelsPanel from '../panels/HotelsPanel';
-import TSPPanel from '../panels/TSPPanel';
-import PayPanel from '../panels/PayPanel';
-import CardsPanel from '../panels/CardsPanel';
 import type { Article } from '../types';
 import './ExplorePage.css';
+
+const LoungesPanel = lazy(() => import('../panels/LoungesPanel'));
+const HotelsPanel = lazy(() => import('../panels/HotelsPanel'));
+const TSPPanel = lazy(() => import('../panels/TSPPanel'));
+const PayPanel = lazy(() => import('../panels/PayPanel'));
+const CardsPanel = lazy(() => import('../panels/CardsPanel'));
 
 type PanelId = 'lounges' | 'library' | 'tsp' | 'hotels' | 'cards' | 'pay' | null;
 
@@ -67,7 +68,9 @@ export default function ExplorePage() {
         title={panelTitle.lounges}
         badge={panelBadge.lounges}
       >
-        <LoungesPanel />
+        <Suspense fallback={null}>
+          <LoungesPanel />
+        </Suspense>
       </SlidePanel>
 
       <SlidePanel
@@ -84,7 +87,9 @@ export default function ExplorePage() {
         onClose={() => setActivePanel(null)}
         title={panelTitle.tsp}
       >
-        <TSPPanel />
+        <Suspense fallback={null}>
+          <TSPPanel />
+        </Suspense>
       </SlidePanel>
 
       <SlidePanel
@@ -93,7 +98,9 @@ export default function ExplorePage() {
         title={panelTitle.hotels}
         badge={panelBadge.hotels}
       >
-        <HotelsPanel />
+        <Suspense fallback={null}>
+          <HotelsPanel />
+        </Suspense>
       </SlidePanel>
 
       <SlidePanel
@@ -102,7 +109,9 @@ export default function ExplorePage() {
         title={panelTitle.cards}
         badge={panelBadge.cards}
       >
-        <CardsPanel />
+        <Suspense fallback={null}>
+          <CardsPanel />
+        </Suspense>
       </SlidePanel>
 
       <SlidePanel
@@ -110,7 +119,9 @@ export default function ExplorePage() {
         onClose={() => setActivePanel(null)}
         title={panelTitle.pay}
       >
-        <PayPanel />
+        <Suspense fallback={null}>
+          <PayPanel />
+        </Suspense>
       </SlidePanel>
 
       {/* Article reader stacks on top */}
